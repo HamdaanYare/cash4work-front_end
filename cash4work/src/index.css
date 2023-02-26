@@ -1,0 +1,28 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+
+/* tailwind.css */
+/* @tailwind base;
+
+body {
+  font-family: sans-serif;
+} */
+
+/* tailwind.css */
+/* @tailwind components;
+
+.btn {
+  @apply bg-blue-500 text-white font-bold py-2 px-4 rounded;
+} */
+
+/* index.html */
+/* <button class="btn">Click me</button> */
+
+
+/* tailwind.css */
+/* @tailwind utilities;
+
+/* index.html */
+/* <div class="p-4 bg-blue-500 text-white font-bold">Hello World</div> */ 
