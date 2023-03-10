@@ -39,7 +39,7 @@ function Signup() {
 		<div className="bg-gray-100 h-screen flex flex-col justify-center items-center px-4 text-base">
 			<div className="w-full max-w-md">
 			<h4 id="error"></h4>
-				<form
+			<form
 					onSubmit={handleSubmit}
 					className="bg-white p-8 rounded-lg"
 				>
@@ -48,25 +48,26 @@ function Signup() {
 					</h2>
 
 					<div className="flex flex-col mt-4 mb-4">
-						<label htmlFor="fname" className="mb-1">
+						<label htmlFor="name" className="mb-1">
 							First Name
 						</label>
 						<input
+							ref={nameRef}
 							type="name"
-							id="fname"
-							className="px-4 py-3 bg-gray-200 rounded-md"
+							id="name"
+							className="px-4 py-3 bg-gray-100 rounded-md"
 							required
 						/>
 					</div>
-
 					<div className="flex flex-col mt-4 mb-4">
-						<label htmlFor="lname" className="mb-1">
+						<label htmlFor="name" className="mb-1">
 							Last Name
 						</label>
 						<input
+							ref={nameRef}
 							type="name"
-							id="lname"
-							className="px-4 py-3 bg-gray-200 rounded-md"
+							id="name"
+							className="px-4 py-3 bg-gray-100 rounded-md"
 							required
 						/>
 					</div>
@@ -79,7 +80,7 @@ function Signup() {
 							ref={emailRef}
 							type="email"
 							id="email"
-							className="px-4 py-3 bg-gray-200 rounded-md"
+							className="px-4 py-3 bg-gray-100 rounded-md"
 							required
 						/>
 					</div>
@@ -92,29 +93,28 @@ function Signup() {
 							ref={passwordRef}
 							type="password"
 							id="password"
-							className="px-4 py-3 bg-gray-200 rounded-md"
+							className="px-4 py-3 bg-gray-100 rounded-md"
 							required
 						/>
 					</div>
 					<div className="flex flex-col mt-4 mb-4">
-						<label htmlFor="dob" className="mb-1">
+						<label htmlFor="name" className="mb-1">
 							Date of Birth
 						</label>
 						<input
+							ref={nameRef}
 							type="date"
-							id="dob"
-							className="px-4 py-3 bg-gray-200 rounded-md"
+							id="name"
+							className="px-4 py-3 bg-gray-100 rounded-md"
 							required
 						/>
 					</div>
-
-					
 
 					<button
 						type="submit"
 						className="bg-primary text-white w-full py-3 rounded-md cursor-pointer hover:opacity-80"
 					>
-						Register
+						Log in
 					</button>
 					<p className="text-sm mt-6 text-center">
 						Already have an account?{" "}
@@ -122,7 +122,7 @@ function Signup() {
 							Log in
 						</Link>
 					</p>
-				</form>
+				</form>			
 			</div>
 		</div>
 	)

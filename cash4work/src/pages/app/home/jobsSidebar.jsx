@@ -7,7 +7,7 @@ const DATA = [
 		id: "1",
 		title: "Remote Front-End Developer",
 		organization: "Turing",
-		location: "Lagos, Lagos, Nigeria (Remote)",
+		location: "Toronto, Canada (Remote)",
 		datePosted: "1 week ago",
 		description:
 			"A rapidly-growing company that is providing cloud-based software services to clients so they may generate and use evidence- and science-based backing for their products at launch and throughout the product life cycle, is looking for a Front-End Developer. The selected candidate will be responsible for integrating front-end elements with server-side logic and functionalities. The company has efficiently provided their world-class solutions to clients from the pharmaceutical, biotech, medical device, animal health, and nutrition industries. This is a great opportunity for developers to showcase their talent and work on building cutting-edge solutions.",
@@ -30,7 +30,7 @@ const DATA = [
 		id: "2",
 		title: "Internet Safety Evaluator - English (Work-from-home)",
 		organization: "TELUS International AI Data Solutions",
-		location: "Nigeria (Remote)",
+		location: "Canada (Remote)",
 		datePosted: "1 week ago",
 		description:
 			"A rapidly-growing company that is providing cloud-based software services to clients so they may generate and use evidence- and science-based backing for their products at launch and throughout the product life cycle, is looking for a Front-End Developer. The selected candidate will be responsible for integrating front-end elements with server-side logic and functionalities. The company has efficiently provided their world-class solutions to clients from the pharmaceutical, biotech, medical device, animal health, and nutrition industries. This is a great opportunity for developers to showcase their talent and work on building cutting-edge solutions.",
@@ -53,7 +53,7 @@ const DATA = [
 		id: "3",
 		title: "Senior React Native Engineer",
 		organization: "Chipper Cash",
-		location: "Nigeria (Remote)",
+		location: "Canada (Remote)",
 		datePosted: "1 week ago",
 		description:
 			"A rapidly-growing company that is providing cloud-based software services to clients so they may generate and use evidence- and science-based backing for their products at launch and throughout the product life cycle, is looking for a Front-End Developer. The selected candidate will be responsible for integrating front-end elements with server-side logic and functionalities. The company has efficiently provided their world-class solutions to clients from the pharmaceutical, biotech, medical device, animal health, and nutrition industries. This is a great opportunity for developers to showcase their talent and work on building cutting-edge solutions.",
@@ -99,7 +99,7 @@ const DATA = [
 		id: "5",
 		title: "Software Engineer",
 		organization: "Microsoft",
-		location: "Lagos, Lagos, Nigeria (Remote)",
+		location: "Toronto, Canada (Remote)",
 		datePosted: "1 week ago",
 		description:
 			"A rapidly-growing company that is providing cloud-based software services to clients so they may generate and use evidence- and science-based backing for their products at launch and throughout the product life cycle, is looking for a Front-End Developer. The selected candidate will be responsible for integrating front-end elements with server-side logic and functionalities. The company has efficiently provided their world-class solutions to clients from the pharmaceutical, biotech, medical device, animal health, and nutrition industries. This is a great opportunity for developers to showcase their talent and work on building cutting-edge solutions.",
@@ -122,7 +122,7 @@ const DATA = [
 		id: "6",
 		title: "Laravel Developer",
 		organization: "Gratitude India",
-		location: "Nigeria (Remote)",
+		location: "Canada (Remote)",
 		datePosted: "3 week ago",
 		description:
 			"A rapidly-growing company that is providing cloud-based software services to clients so they may generate and use evidence- and science-based backing for their products at launch and throughout the product life cycle, is looking for a Front-End Developer. The selected candidate will be responsible for integrating front-end elements with server-side logic and functionalities. The company has efficiently provided their world-class solutions to clients from the pharmaceutical, biotech, medical device, animal health, and nutrition industries. This is a great opportunity for developers to showcase their talent and work on building cutting-edge solutions.",
@@ -145,7 +145,7 @@ const DATA = [
 		id: "7",
 		title: "Python Developer",
 		organization: "Talent500",
-		location: "Nigeria (Remote)",
+		location: "Canada (Remote)",
 		datePosted: "1 month ago",
 		description:
 			"A rapidly-growing company that is providing cloud-based software services to clients so they may generate and use evidence- and science-based backing for their products at launch and throughout the product life cycle, is looking for a Front-End Developer. The selected candidate will be responsible for integrating front-end elements with server-side logic and functionalities. The company has efficiently provided their world-class solutions to clients from the pharmaceutical, biotech, medical device, animal health, and nutrition industries. This is a great opportunity for developers to showcase their talent and work on building cutting-edge solutions.",
@@ -168,7 +168,7 @@ const DATA = [
 		id: "8",
 		title: "Remote Front-End Developer",
 		organization: "Turing",
-		location: "Lagos, Lagos, Nigeria (Remote)",
+		location: "Toronto, Toronto, Canada (Remote)",
 		datePosted: "1 week ago",
 		description:
 			"A rapidly-growing company that is providing cloud-based software services to clients so they may generate and use evidence- and science-based backing for their products at launch and throughout the product life cycle, is looking for a Front-End Developer. The selected candidate will be responsible for integrating front-end elements with server-side logic and functionalities. The company has efficiently provided their world-class solutions to clients from the pharmaceutical, biotech, medical device, animal health, and nutrition industries. This is a great opportunity for developers to showcase their talent and work on building cutting-edge solutions.",

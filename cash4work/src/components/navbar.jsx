@@ -24,7 +24,7 @@ export default function Navbar() {
 					</span>
 				</Link>
 
-				{pathname.includes("/jobs") && (
+				{/* {pathname.includes("/jobs") && (
 					<div className="bg-gray-100 px-6 py-3 rounded-lg w-full max-w-sm items-center hidden md:flex">
 						<input
 							type="text"
@@ -35,12 +35,18 @@ export default function Navbar() {
 							<FiSearch />
 						</div>
 					</div>
-				)}
+				)} */}
 
 				<div className="flex items-center gap-4">
-					<div className="mr-8">
+					<div className="mr-8 flex gap-8">
 						<Link className="text-primary" to="/post-job">
 							Post Job
+						</Link>
+						<Link className="text-primary" to="/resume">
+							Resume
+						</Link>
+						<Link className="text-primary" to="/contact">
+							Contact
 						</Link>
 					</div>
 

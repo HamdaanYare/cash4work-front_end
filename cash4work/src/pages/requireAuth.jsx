@@ -12,12 +12,12 @@ export default function RequireAuth() {
 	}
 
 	return user ? (
-		<>
+		<div className="bg-gray-100">
 			<Navbar />
 			<div className="max-w-6xl mx-auto">
 				<Outlet />
 			</div>
-		</>
+		</div>
 	) : (
 		<Navigate to={"/login"} state={{ from: location }} replace />
 	)
