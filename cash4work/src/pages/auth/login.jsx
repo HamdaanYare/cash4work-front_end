@@ -33,7 +33,7 @@ function Login() {
 				}
 				else document.getElementById('error').innerHTML = data.message;//anything else is coming as JSON response. it has a message object
 				//so we are accessing the message object with data.message.
-			//	navigate('/jobs');
+				navigate('/jobs');
 			})
 		}catch(error) {
 			return [];

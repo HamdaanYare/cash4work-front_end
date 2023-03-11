@@ -1,7 +1,19 @@
 import React, { useRef } from "react"
+const API_URL = "https://cash4-work-backend.vercel.app";
+
 
 export default function Resume() {
 	const form = useRef()
+
+	const handleSubmit = async (event) => {
+		event.preventDefault();
+		const formData = new FormData(form.current);
+		const response = await fetch(`${API_URL}/resumes`, {
+		  method: "POST",
+		  body: formData
+		});
+		// handle response from API here
+	  }
 
 	return (
 		<div

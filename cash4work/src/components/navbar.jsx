@@ -48,6 +48,15 @@ export default function Navbar() {
 						<Link className="text-primary" to="/contact">
 							Contact
 						</Link>
+						<Link className="text-primary" to="/About">
+							About
+						</Link>
+						<Link className="text-primary" to="/Service">
+							Service
+						</Link>
+						<Link className="text-primary" to="/CreateAd">
+							CreateAd
+						</Link>
 					</div>
 
 					<span
