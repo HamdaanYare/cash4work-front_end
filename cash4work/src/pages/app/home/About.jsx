@@ -85,7 +85,7 @@ const About = () => {
       <p style={{fontSize: '2rem', fontWeight: 'bold', paddingLeft: '100px'}}>
              2.2	System Context
         </p>
-        <p style={{fontSize: '2rem'}}>
+        <p style={{fontSize: '2rem'}}> 
         Cash4Work is initially a web application project. The project will be based on the NodeJS framework. 
         The application will use the removed database. To manage the database we will use the MySql RDBMS. 
         The idea of Cash4Work is to give opportunity for everyone to find a temporary job quickly. 

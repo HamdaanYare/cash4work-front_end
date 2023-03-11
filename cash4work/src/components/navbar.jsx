@@ -7,9 +7,8 @@ import { useAuthContext } from "../context"
 
 export default function Navbar() {
 	const { pathname } = useLocation()
-	const { setUser } = useAuthContext()
+	const { logout } = useAuthContext()
 
-	const logout = () => setUser(null)
 
 	return (
 		<nav className="bg-white h-16 p-2 shadow-md shadow-gray-100">

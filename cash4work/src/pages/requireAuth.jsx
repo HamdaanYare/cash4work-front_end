@@ -4,21 +4,26 @@ import Navbar from "../components/navbar"
 import { useAuthContext } from "../context"
 
 export default function RequireAuth() {
-	const location = useLocation()
-	const { user } = useAuthContext()
+  const location = useLocation()
+  const { user } = useAuthContext()
 
-	if (location.pathname === "/login" || location.pathname === "/signup") {
-		return user ? <Navigate to="/jobs" /> : <Outlet />
-	}
+  const isAuthenticated = () => {
+	console.log(localStorage.getItem("user"));
+    return user && user.token;
+  }
 
-	return user ? (
-		<div className="bg-gray-100">
-			<Navbar />
-			<div className="max-w-6xl mx-auto">
-				<Outlet />
-			</div>
-		</div>
-	) : (
-		<Navigate to={"/login"} state={{ from: location }} replace />
-	)
+  if (location.pathname === "/login" || location.pathname === "/signup") {
+    return isAuthenticated() ? <Navigate to="/jobs" /> : <Outlet />
+  }
+
+  return isAuthenticated() ? (
+    <div className="bg-gray-100">
+      <Navbar />
+      <div className="max-w-6xl mx-auto">
+        <Outlet />
+      </div>
+    </div>
+  ) : (
+    <Navigate to={"/login"} state={{ from: location }} replace />
+  )
 }
