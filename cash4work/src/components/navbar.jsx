@@ -1,13 +1,22 @@
-import React from "react"
+import React, {useState} from "react"
 import { FaBriefcase } from "react-icons/fa"
 import { BsFillPersonFill } from "react-icons/bs"
 import { FiSearch } from "react-icons/fi"
 import { Link, useLocation } from "react-router-dom"
 import { useAuthContext } from "../context"
 
+
 export default function Navbar() {
 	const { pathname } = useLocation()
 	const { logout } = useAuthContext()
+
+	const [isOpen, setIsOpen] = useState(false);
+
+  function toggleMenu() {
+    setIsOpen(!isOpen);
+  }
+
+
 
 
 	return (
@@ -59,11 +68,18 @@ export default function Navbar() {
 					</div>
 
 					<span
-						onClick={logout}
+						onClick={toggleMenu}
 						className="w-10 h-10 grid place-items-center rounded-full bg-neutral-200 cursor-pointer hover:bg-neutral-300"
 					>
 						<BsFillPersonFill size={24} className="text-gray-500" />
+		
 					</span>
+					{isOpen && (
+						<div className="dropdown-menu-list">
+							<button onClick={logout}>Logout</button>
+						
+						</div>
+					)}
 				</div>
 			</div>
 		</nav>
