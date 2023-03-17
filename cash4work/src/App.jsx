@@ -13,8 +13,9 @@ import {
 	NotFound,
 	PostJob,
 	Resume,
+	Messenger,
 	Signup,
-    CreateAd,
+	CreateAd
 } from "./pages"
 import JobDetails from "./pages/app/home/jobDetails"
 import RequireAuth from "./pages/requireAuth"
@@ -34,6 +35,7 @@ export default function App() {
 					<Route path="contact" element={<Contact />} />
 					<Route path="resume" element={<Resume />} /> 
 					<Route path="createad" element={<CreateAd />} /> 
+					<Route path="Messenger" element={<Messenger />} /> 
 
 
 					<Route path="/login" element={<Login />} />

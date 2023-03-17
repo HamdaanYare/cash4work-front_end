@@ -7,6 +7,7 @@ export { default as Resume } from "./app/resume"
 export { default as About } from "./app/home/About"
 export { default as Service } from "./app/home/Service"
 export { default as CreateAd } from "./app/home/CreateAd"
+export { default as Messenger  } from "./app/home/Messenger"
 
 
 export { default as Login } from "./auth/login"

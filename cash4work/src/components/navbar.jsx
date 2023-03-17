@@ -65,6 +65,10 @@ export default function Navbar() {
 						<Link className="text-primary" to="/CreateAd">
 							CreateAd
 						</Link>
+						<Link className="text-primary" to="/Messenger">
+							Messenger
+						</Link>
+						
 					</div>
 
 					<span
