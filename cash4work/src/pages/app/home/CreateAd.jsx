@@ -1,5 +1,5 @@
 import React, { useState } from 'react';
-
+import "./CreateAd.css"
 function CreateAd() {
   const [title, setTitle] = useState('');
   const [description, setDescription] = useState('');
@@ -52,53 +52,6 @@ export default CreateAd;
 
 // CSS styling
 // import './CreateAd.css';
-const style = `
+// const style = `
 
-.create-ad-form {
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  margin-top: 50px;
-}
-
-.create-ad-label {
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  margin-bottom: 20px;
-  margin: 36% 36%;
-  font-size: 20px;
-}
-
-.create-ad-input,
-.create-ad-textarea,
-.create-ad-input[type="number"] {
-  width: 300px;
-  height: 40px;
-  border: none;
-  border-radius: 5px;
-  padding: 10px;
-  font-size: 20px;
-  margin-top: 10px;
-  text-align: center;
-}
-
-.create-ad-textarea {
-  height: 100px;
-}
-
-.create-ad-button {
-  width: 200px;
-  height: 50px;
-  background-color: #2ecc71;
-  color: white;
-  border: none;
-  border-radius: 5px;
-  font-size: 20px;
-  margin-top: 20px;
-  cursor: pointer;
-}
-
-.create-ad-button:hover {
-  background-color: #27ae60;
-}`
+// `

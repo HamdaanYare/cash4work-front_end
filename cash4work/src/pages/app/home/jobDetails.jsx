@@ -58,12 +58,14 @@ export default function JobDetails() {
 			</div>
 
 			<div className="flex items-center gap-2 mt-8 justify-end">
-				<button className="bg-primary rounded-full text-white text-base font-semibold px-6 py-2 hover:opacity-80">
-					Apply
-				</button>
-				<button className="bg-white border-[1px] border-primary rounded-full text-primary text-base font-semibold px-6 py-2 hover:opacity-80">
+			<button onClick={() => navigate(`/apply/${data.id}`)} className="bg-primary rounded-full text-white text-base font-semibold px-6 py-2 hover:opacity-80">
+				Apply
+			</button>
+
+			<button onClick={() => saveJob(data)} className="bg-white border-[1px] border-primary rounded-full text-primary text-base font-semibold px-6 py-2 hover:opacity-80">
 					Save
-				</button>
+			</button>
+
 			</div>
 		</div>
 	)

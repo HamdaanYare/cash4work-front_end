@@ -1,4 +1,4 @@
-.messenger-container {
+ .messenger-container {
     display: flex;
     height: 100vh;
   }
@@ -84,3 +84,125 @@
     padding: 20px;
     overflow-y: scroll;
   }
+
+  .message-input {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    border: 1px solid #ccc;
+    padding: 10px;
+  }
+  
+  .message-input input[type="text"] {
+    flex: 1;
+    margin-right: 10px;
+    border: none;
+    outline: none;
+  }
+  
+  .message-input button {
+    background-color: #007bff;
+    color: #fff;
+    border: none;
+    padding: 10px;
+    cursor: pointer;
+  }
+  
+ 
+
+  /* --------------------------- */
+  /*  Here is another css */
+
+
+
+  /* .messenger {
+    display: flex;
+    justify-content: space-between;
+    height: 100vh;
+  }
+  
+  .conversations {
+    width: 20%;
+    background-color: #f2f2f2;
+    padding: 20px;
+    overflow-y: scroll;
+  }
+  
+  .conversation {
+    padding: 10px;
+    border-radius: 5px;
+    cursor: pointer;
+    margin-bottom: 10px;
+    transition: background-color 0.3s ease;
+  }
+  
+  .conversation:hover {
+    background-color: #e6e6e6;
+  }
+  
+  .conversation.active {
+    background-color: #d9d9d9;
+  }
+  
+  .conversation-header {
+    background-color: #f2f2f2;
+    padding: 20px;
+    font-weight: bold;
+    font-size: 20px;
+    border-bottom: 1px solid #e6e6e6;
+  }
+  
+  .history {
+    padding: 20px;
+    height: 70vh;
+    overflow-y: scroll;
+  }
+  
+  .message {
+    padding: 10px;
+    margin-bottom: 10px;
+    border-radius: 5px;
+    max-width: 80%;
+  }
+  
+  .message.sent {
+    background-color: #007bff;
+    color: #fff;
+    align-self: flex-end;
+  }
+  
+  .message.received {
+    background-color: #e6e6e6;
+    align-self: flex-start;
+  }
+  
+  .message-input {
+    display: flex;
+    align-items: center;
+    background-color: #f2f2f2;
+    padding: 10px;
+    position: absolute;
+    bottom: 0;
+    left: 20%;
+    right: 0;
+  }
+  
+  .message-input input {
+    flex: 1;
+    padding: 10px;
+    border-radius: 5px;
+    border: none;
+    margin-right: 10px;
+  }
+  
+  .message-input button {
+    background-color: #007bff;
+    color: #fff;
+    border: none;
+    padding: 10px;
+    border-radius: 5px;
+    cursor: pointer;
+  }
+   */ 
+
+   

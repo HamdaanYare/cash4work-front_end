@@ -10,16 +10,16 @@ function Contact() {
 	const handleSubmit = async (event) => {
 		event.preventDefault()
 		setIsSending(true)
-		// try {
-		// 	await axios.post("/api/contact", { name, email, message })
-		// 	setIsSent(true)
-		// 	setName("")
-		// 	setEmail("")
-		// 	setMessage("")
-		// } catch (error) {
-		// 	console.error(error)
-		// }
-		setIsSending(false)
+		try {
+			await axios.post("/api/contact", { name, email, message })
+			setIsSent(true)
+			setName("")
+			setEmail("")
+			setMessage("")
+		} catch (error) {
+			console.error(error)
+		}
+		setIsSending(true)
 	}
 
 	return (
