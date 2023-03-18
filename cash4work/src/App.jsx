@@ -12,12 +12,14 @@ import {
 	Login,
 	NotFound,
 	PostJob,
+	Messenger1,
 	Resume,
 	Messenger,
 	Signup,
 	CreateAd
 } from "./pages"
 import JobDetails from "./pages/app/home/jobDetails"
+import MessengerDetails from "./pages/app/home/messengerDetails"
 import RequireAuth from "./pages/requireAuth"
 
 export default function App() {
@@ -29,6 +31,14 @@ export default function App() {
 					<Route path="/jobs" element={<Home />}>
 						<Route path=":id" element={<JobDetails />} />
 					</Route>
+
+					<Route path="/Messenger1" element={<Messenger1 />}>
+						<Route path=":id" element={<MessengerDetails />} />
+					</Route>
+					
+
+
+
 					<Route path="about" element={<About />} /> 
 					<Route path="service" element={<Service />} /> 
 					<Route path="post-job" element={<PostJob />} />
