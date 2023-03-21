@@ -12,9 +12,9 @@ import {
 	Login,
 	NotFound,
 	PostJob,
-	Messenger1,
-	Resume,
+	Chat,
 	Messenger,
+	Resume,
 	Signup,
 	CreateAd
 } from "./pages"
@@ -32,7 +32,7 @@ export default function App() {
 						<Route path=":id" element={<JobDetails />} />
 					</Route>
 
-					<Route path="/Messenger1" element={<Messenger1 />}>
+					<Route path="/Messenger" element={<Messenger />}>
 						<Route path=":id" element={<MessengerDetails />} />
 					</Route>
 					
@@ -45,7 +45,7 @@ export default function App() {
 					<Route path="contact" element={<Contact />} />
 					<Route path="resume" element={<Resume />} /> 
 					<Route path="createad" element={<CreateAd />} /> 
-					<Route path="Messenger" element={<Messenger />} /> 
+					<Route path="Chat" element={<Chat />} /> 
 
 
 					<Route path="/login" element={<Login />} />

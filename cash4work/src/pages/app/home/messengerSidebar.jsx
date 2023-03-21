@@ -232,7 +232,7 @@ const DATA = [
 
 export default function MessengerSidebar() {
 	const { pathname } = useLocation()
-	const pathReqExp = /^\/Messenger1\/\w{1,}$/
+	const pathReqExp = /^\/Messenger\/\w{1,}$/
 
 	return (
 		<div
@@ -241,7 +241,7 @@ export default function MessengerSidebar() {
 			} w-full bg-white border-[1px] border-r-0 border-gray-300 overflow-hidden flex-col md:rounded-tl-xl md:w-[40%] md:flex`}
 		>
 			<div className="bg-primary text-white p-3">
-				<h2 className="text-base">Messenger</h2>
+				<h2 className="text-base">Chat</h2>
 				<p className="text-[12px]">{USERS.length} people</p>
 			</div>
 

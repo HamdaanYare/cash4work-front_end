@@ -12,7 +12,7 @@ export default function MessengerListItem({ data }) {
 		<div
 			onClick={handleClick}
 			className={`flex gap-3 ${
-				pathname === `/Messenger1/${data.id}` && "bg-blue-50"
+				pathname === `/Messenger/${data.id}` && "bg-blue-50"
 			} hover:bg-neutral-100 flex-1 cursor-pointer`}
 		>
 			<div className="m-3 w-14 h-14 bg-gray-200 grid place-items-center">

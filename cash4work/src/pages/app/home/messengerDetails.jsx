@@ -22,7 +22,7 @@ function History({ messages }) {
 	);
   }
 
-  function Messenger() {
+  function Chat() {
 	const [messageText, setMessageText] = useState("");
 	const [messageHistory, setMessageHistory] = useState([]);
   
@@ -62,12 +62,12 @@ export default function MessengerDetails() {
 	const data = state?.data
 
 	useEffect(() => {
-		if (!data) navigate("/Messenger1")
+		if (!data) navigate("/Messenger")
 	}, [])
 
 	return (
 		<div className="w-[100%] py-3 px-8 bg-white overflow-y-auto border-[1px] border-gray-300 border-l-0 md:rounded-tr-xl md:w-[60%]">
-			<button onClick={() => navigate("/Messenger1")} className="md:hidden">
+			<button onClick={() => navigate("/Messenger")} className="md:hidden">
 				<MdOutlineKeyboardBackspace size={30} className="opacity-60" />
 			</button>
 
@@ -111,7 +111,7 @@ export default function MessengerDetails() {
 			</div> */}
 
 			<div className="flex items-center gap-2 mt-8 justify-end">
-			<Messenger />
+			<Chat />
 			{/* <button onClick={() => navigate(`/apply/${data.id}`)} className="bg-primary rounded-full text-white text-base font-semibold px-6 py-2 hover:opacity-80">
 				Apply
 			</button>

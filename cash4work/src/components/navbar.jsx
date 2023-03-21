@@ -65,11 +65,11 @@ export default function Navbar() {
 						<Link className="text-primary" to="/CreateAd">
 							CreateAd
 						</Link>
+						<Link className="text-primary" to="/Chat">
+							Chat
+						</Link>
 						<Link className="text-primary" to="/Messenger">
 							Messenger
-						</Link>
-						<Link className="text-primary" to="/Messenger1">
-							Messenger1
 						</Link>
 					</div>
 
