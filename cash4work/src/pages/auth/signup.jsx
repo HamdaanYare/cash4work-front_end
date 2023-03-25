@@ -54,7 +54,7 @@ function Signup() {
 						<input
 							ref={nameRef}
 							type="name"
-							id="name"
+							id="fname"
 							className="px-4 py-3 bg-gray-100 rounded-md"
 							required
 						/>
@@ -66,7 +66,7 @@ function Signup() {
 						<input
 							ref={nameRef}
 							type="name"
-							id="name"
+							id="lname"
 							className="px-4 py-3 bg-gray-100 rounded-md"
 							required
 						/>
@@ -104,7 +104,7 @@ function Signup() {
 						<input
 							ref={nameRef}
 							type="date"
-							id="name"
+							id="dob"
 							className="px-4 py-3 bg-gray-100 rounded-md"
 							required
 						/>
@@ -114,7 +114,7 @@ function Signup() {
 						type="submit"
 						className="bg-primary text-white w-full py-3 rounded-md cursor-pointer hover:opacity-80"
 					>
-						Log in
+						Sign Up
 					</button>
 					<p className="text-sm mt-6 text-center">
 						Already have an account?{" "}

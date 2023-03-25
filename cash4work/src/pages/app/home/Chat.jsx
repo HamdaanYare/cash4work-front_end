@@ -242,7 +242,8 @@
 
 import React, { useState } from "react";
 import "./Messenger.css";
-
+import io from "socket.io-client";
+const SERVER_URL = 'http://localhost:8088'; // Replace with your backend server URL
 const users = [
   {
     id: 1,
@@ -320,9 +321,20 @@ function Messenger() {
   const [activeConversation, setActiveConversation] = useState(users[0]);
   const [messageText, setMessageText] = useState("");
   const [messageHistory, setMessageHistory] = useState([]);
+  const [socket, setSocket] = useState(null);
+  
+  useEffect(() => {
+    // Connect to the Socket.IO server
+    const newSocket = io(SERVER_URL);
+    setSocket(newSocket);
 
-  function handleSendMessage() {
-    if (messageText.trim()) {
+    // Add event listeners for incoming messages
+    newSocket.on('connect', () => {
+      console.log('Connected to server');
+    });
+
+    newSocket.on('chat message', () => {
+       if (messageText.trim()) {
       const newMessage = {
         id: messageHistory.length + 1,
         sender: "me",
@@ -330,7 +342,18 @@ function Messenger() {
       };
       setMessageHistory([...messageHistory, newMessage]);
       setMessageText("");
-    }
+      }
+      console.log('Sent message');
+    });
+
+    return () => {
+      // Disconnect from the Socket.IO server when component unmounts
+      newSocket.disconnect();
+    };
+  }, []); // Only run this effect once on component mount
+  function handleSendMessage() {
+    socket.emit('chat message');
+    
   }
 
   return (

@@ -7,7 +7,7 @@ export default function JobDetails() {
 	const { state } = useLocation()
 	const navigate = useNavigate()
 	const data = state?.data
-
+	console.log(data)
 	useEffect(() => {
 		if (!data) navigate("/jobs")
 	}, [])
@@ -20,25 +20,22 @@ export default function JobDetails() {
 
 			<h1 className="text-2xl font-semibold mt-3">{data?.title}</h1>
 			<p className="mt-4">
-				{data?.organization} • {data?.location}{" "}
-				<span className="opacity-60">{data?.datePosted}</span>
+				• {data?.location}{" • "}
+				<span className="opacity-60">Posted on: {data?.post_date}</span>
 				{" • "}
-				<span className="opacity-60">
-					{data?.numberOfApplicants} applicants
-				</span>
 			</p>
 
 			<div className="mt-4 flex items-center gap-3 opacity-60">
 				<FaBriefcase size={20} />
 				<div>
-					<span>Full-time</span>
+					<span>Needed on</span>
 					{" • "}
-					<span>Entry level</span>
+					<span>{data?.need_on}</span>
 				</div>
 			</div>
 
 			<p className="mt-6">{data?.description}</p>
-
+{/* 
 			<div className="mt-4">
 				<span className="font-semibold">Job Responsiblities</span>
 				<ul className="list-disc ml-10 mt-4">
@@ -56,7 +53,7 @@ export default function JobDetails() {
 					))}
 				</ul>
 			</div>
-
+ */}
 			<div className="flex items-center gap-2 mt-8 justify-end">
 			<button onClick={() => navigate(`/apply/${data.id}`)} className="bg-primary rounded-full text-white text-base font-semibold px-6 py-2 hover:opacity-80">
 				Apply

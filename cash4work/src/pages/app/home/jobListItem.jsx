@@ -23,10 +23,10 @@ export default function JobListItem({ data }) {
 				<h2 className="font-semibold text-base text-primary">
 					{data.title}
 				</h2>
-				<p className="mt-1">{data.organization}</p>
+				<p className="mt-1">${data.salary}</p>
 				<p className="opacity-60">{data.location}</p>
 
-				<p className="mt-4 text-[12px] opacity-60">{data.datePosted}</p>
+				<p className="mt-4 text-[12px] opacity-60">{data.need_on}</p>
 			</div>
 		</div>
 	)
