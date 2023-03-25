@@ -1,7 +1,8 @@
 import React, { useRef, useState } from "react"
 import { Link, useNavigate } from "react-router-dom"
 import { useAuthContext } from "../../context"
-const API_URL = "https://cash4-work-backend.vercel.app";
+//const API_URL = "https://cash4-work-backend.vercel.app";
+const API_URL = "http://localhost:8088";
 
 
 function Login() {
@@ -21,13 +22,10 @@ function Login() {
       });
       const data = await response.json();
       if (response.ok) {
-        const { accessToken } = data;
+        const { accessToken, id } = data;
+        console.log(id)
       //  localStorage.setItem("accessToken", accessToken);
-	  const userWithToken = {
-		token: accessToken,
-		email: email,
-	  };
-	  login(accessToken, email);
+	     login(accessToken, email, id);
         navigate("/jobs");
       } else {
         setError(data.message);

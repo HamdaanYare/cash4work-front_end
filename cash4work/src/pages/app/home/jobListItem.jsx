@@ -1,7 +1,7 @@
 import React from "react"
 import { BsBuilding } from "react-icons/bs"
 import { useLocation, useNavigate } from "react-router-dom"
-
+import moment from "moment"
 export default function JobListItem({ data }) {
 	const navigate = useNavigate()
 	const { pathname } = useLocation()
@@ -26,7 +26,7 @@ export default function JobListItem({ data }) {
 				<p className="mt-1">${data.salary}</p>
 				<p className="opacity-60">{data.location}</p>
 
-				<p className="mt-4 text-[12px] opacity-60">{data.need_on}</p>
+				<p className="mt-4 text-[12px] opacity-60">{moment(data?.need_on).format('YYYY-MM-DD hh:mm')}</p>
 			</div>
 		</div>
 	)

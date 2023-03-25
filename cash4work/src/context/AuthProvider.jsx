@@ -5,10 +5,10 @@ const AuthContext = createContext()
 export default function AuthProvider({ children }) {
 	const [user, setUser] = useState(JSON.parse(localStorage.getItem("user")))
 
-	const login = async (token, email) => {
+	const login = async (token, email, id) => {
 		try {
-				setUser({token, email})
-				localStorage.setItem("user", JSON.stringify({token, email}))
+				setUser({token, email, id})
+				localStorage.setItem("user", JSON.stringify({token, email, id}))
 				return true;
 		} catch (error) {
 			console.log(error)

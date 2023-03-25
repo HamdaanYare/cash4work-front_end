@@ -1,16 +1,37 @@
 import React, { useState } from "react"
+import {useRef} from 'react';
+import { useAuthContext } from "../../context"
+import { Link, useNavigate } from "react-router-dom"
 
 export default function PostJob() {
+	let btnRef = useRef();
+	let navigate = useNavigate();
+	const API_URL = "http://localhost:8088"; // Replace with your backend server URL
+	const { user } = useAuthContext();
 	const [form, setForm] = useState({
 		title: "",
-		organization: "",
-		location: "",
+		posted_by: "",
 		description: "",
+		location: "",
+		salary: 0,
+		need_on: ""
 	})
 
 	const handleSubmit = (e) => {
-		e.preventDefault()
-		console.log(form.description)
+		e.preventDefault();
+		console.log("user: "+user.token+" "+user.email+" "+user.id+"");
+		setForm((prev) => ({ ...prev, posted_by: user.id }))
+		console.log(form);
+		btnRef.current.setAttribute("disabled", "disabled");
+		fetch(API_URL+"/jobs", {
+			method: "POST",
+			headers: { 'Content-Type': 'application/json' },
+			body: JSON.stringify(form)
+		}).then((response) => response.json())
+			.then((data) => {
+				console.log(data);
+				navigate("/jobs/"+data.id, { state: { form } });
+			})
 	}
 
 	return (
@@ -34,18 +55,18 @@ export default function PostJob() {
 					}
 				/>
 
-				<label className="text-gray-700" htmlFor="organization">
-					Organization
+				<label className="text-gray-700" htmlFor="salary">
+					Salary
 				</label>
 				<input
 					className="border-[1.5px] border-gray-400 rounded-md py-[6px] px-2 mt-1 mb-4"
 					type="text"
-					id="organization"
-					value={form.organization}
+					id="salary"
+					value={form.salary}
 					onChange={(e) =>
 						setForm((prev) => ({
 							...prev,
-							organization: e.target.value,
+							salary: e.target.value,
 						}))
 					}
 				/>
@@ -66,6 +87,22 @@ export default function PostJob() {
 					}
 				/>
 
+				<label className="text-gray-700" htmlFor="need_on">
+					Need On
+				</label>
+				<input
+					className="border-[1.5px] border-gray-400 rounded-md py-[6px] px-2 mt-1 mb-4"
+					type="date"
+					id="need_on"
+					value={form.need_on}
+					onChange={(e) =>
+						setForm((prev) => ({
+							...prev,
+							need_on: e.target.value,
+						}))
+					}
+				/>
+
 				<label className="text-gray-700" htmlFor="description">
 					Description
 				</label>
@@ -82,7 +119,7 @@ export default function PostJob() {
 					}
 				></textarea>
 
-				<button className="bg-primary rounded-full text-white text-base font-semibold px-6 py-2 hover:opacity-80">
+				<button ref={btnRef} className="bg-primary rounded-full text-white text-base font-semibold px-6 py-2 hover:opacity-80">
 					Post
 				</button>
 			</form>

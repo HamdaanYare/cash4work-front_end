@@ -1,19 +1,33 @@
 import React, { useRef, useState, useEffect } from "react"
 import { useLocation } from "react-router-dom"
 import JobListItem from "./jobListItem"
-
+import {moment} from 'moment'
+import { useAuthContext } from "../../../context"
 const API_URL = 'http://localhost:8088'; // Replace with your backend server URL
 
 export default function JobsSidebar() {
-	const { pathname } = useLocation()
-	const pathReqExp = /^\/jobs\/\w{1,}$/
-const [jobs, setJobs] = useState([]);
+	const { pathname } = useLocation();
+	const pathReqExp = /^\/jobs\/\w{1,}$/;
+	const { user } = useAuthContext();
+	const [jobs, setJobs] = useState([]);
+	let initialJobs = [];
 	useEffect(() => {
  	  fetch(API_URL+"/jobs")
-	.then((response) => response.json())
-	.then((data) => {
-	  setJobs(data);
-	})
+		.then((response) => response.json())
+		.then((data) => {
+			initialJobs = data;
+		});
+		fetch(API_URL+"/jobs/applied/"+user.id)
+			.then((response) => response.json())
+			.then((data) => {
+				console.log(data);
+				const filteredJobListings = initialJobs.filter((initialJob) => {
+					return !data.some((appliedJob) => appliedJob.job_id === initialJob.id);
+				  });
+				setJobs(filteredJobListings);
+			});
+
+
 	}, []);
 	return (
 		<div

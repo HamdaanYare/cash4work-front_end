@@ -2,8 +2,12 @@ import React, { useEffect } from "react"
 import { FaBriefcase } from "react-icons/fa"
 import { MdOutlineKeyboardBackspace } from "react-icons/md"
 import { useLocation, useNavigate } from "react-router-dom"
+import moment from "moment"
+import { useAuthContext } from "../../../context"
 
 export default function JobDetails() {
+	const API_URL = 'http://localhost:8088'; // Replace with your backend server URL
+	const { user } = useAuthContext()
 	const { state } = useLocation()
 	const navigate = useNavigate()
 	const data = state?.data
@@ -11,6 +15,16 @@ export default function JobDetails() {
 	useEffect(() => {
 		if (!data) navigate("/jobs")
 	}, [])
+
+	function applyJob() {
+		alert("Job Applied");
+		fetch(API_URL+"/jobs/apply", {
+			method: "POST",
+			headers: { "Content-Type": "application/json" },
+			body: JSON.stringify( {job_id: data.id, applied_by: user.id} ),
+		});
+
+	}
 
 	return (
 		<div className="w-[100%] py-3 px-8 bg-white overflow-y-auto border-[1px] border-gray-300 border-l-0 md:rounded-tr-xl md:w-[60%]">
@@ -21,7 +35,9 @@ export default function JobDetails() {
 			<h1 className="text-2xl font-semibold mt-3">{data?.title}</h1>
 			<p className="mt-4">
 				• {data?.location}{" • "}
-				<span className="opacity-60">Posted on: {data?.post_date}</span>
+				<span className="opacity-60">Posted on: {moment(data?.post_date).format('YYYY-MM-DD')}</span>
+				{" • "}
+				Salary ${data?.salary}
 				{" • "}
 			</p>
 
@@ -30,10 +46,9 @@ export default function JobDetails() {
 				<div>
 					<span>Needed on</span>
 					{" • "}
-					<span>{data?.need_on}</span>
+					<span>{moment(data?.need_on).format('YYYY-MM-DD hh:mm')}</span>
 				</div>
 			</div>
-
 			<p className="mt-6">{data?.description}</p>
 {/* 
 			<div className="mt-4">
@@ -55,7 +70,7 @@ export default function JobDetails() {
 			</div>
  */}
 			<div className="flex items-center gap-2 mt-8 justify-end">
-			<button onClick={() => navigate(`/apply/${data.id}`)} className="bg-primary rounded-full text-white text-base font-semibold px-6 py-2 hover:opacity-80">
+			<button onClick={() => applyJob()} className="bg-primary rounded-full text-white text-base font-semibold px-6 py-2 hover:opacity-80">
 				Apply
 			</button>
 
