@@ -107,14 +107,6 @@ export default function MessengerDetails() {
 			</button>
 
 			<h1 className="text-2xl font-semibold mt-3">{user.id === data.applied_by ? data.posted_by_fname : data.applied_by_fname}</h1>
-			{/* <p className="mt-4">
-				{data?.organization} • {data?.location}{" "}
-				<span className="opacity-60">{data?.datePosted}</span>
-				{" • "}
-				<span className="opacity-60">
-					{data?.numberOfApplicants} applicants
-				</span>
-			</p> */}
 
 			<div className="mt-4 flex items-center gap-3 opacity-60">
 				<FaBriefcase size={20} />
@@ -125,36 +117,8 @@ export default function MessengerDetails() {
 				</div>
 			</div>
 
-			{/* <p className="mt-6">{data?.description}</p> */}
-
-			{/* <div className="mt-4">
-				<span className="font-semibold">Job Responsiblities</span>
-				<ul className="list-disc ml-10 mt-4">
-					{data?.jobResponsibilities.map((responsiblity, _) => (
-						<li key={_}>{responsiblity}</li>
-					))}
-				</ul>
-			</div> */}
-
-			{/* <div className="mt-4">
-				<span className="font-semibold">Job Requirements</span>
-				<ul className="list-disc ml-10 mt-4">
-					{data?.jobRequirements.map((requirement, _) => (
-						<li key={_}>{requirement}</li>
-					))}
-				</ul>
-			</div> */}
-
 			<div className="flex items-center gap-2 mt-8 justify-end">
 				<Chat data={ messageId } />
-			{/* <button onClick={() => navigate(`/apply/${data.id}`)} className="bg-primary rounded-full text-white text-base font-semibold px-6 py-2 hover:opacity-80">
-				Apply
-			</button>
-
-			<button onClick={() => saveJob(data)} className="bg-white border-[1px] border-primary rounded-full text-primary text-base font-semibold px-6 py-2 hover:opacity-80">
-					Save
-			</button> */}
-
 			</div>
 		</div>
 	)

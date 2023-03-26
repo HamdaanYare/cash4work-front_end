@@ -1,24 +1,27 @@
-import React, { useContext, createContext, useState } from "react"
+import React, { useContext, createContext, useState, useEffect } from "react"
+import { Navigate, Outlet, useLocation } from "react-router-dom";
 
 const AuthContext = createContext()
 
 export default function AuthProvider({ children }) {
-	const [user, setUser] = useState(JSON.parse(localStorage.getItem("user")))
-
-	const login = async (token, email, id) => {
-		try {
-				setUser({token, email, id})
-				localStorage.setItem("user", JSON.stringify({token, email, id}))
-				return true;
-		} catch (error) {
-			console.log(error)
-			return false
-		}
-	}
+	const [user, setUser] = useState(null);
+	useEffect(() => {
+		localStorage.setItem("user", JSON.stringify(user))
+	  }, [user]);
+	  
+	  const login = (token, email, id) => {
+		return new Promise((resolve) => {
+		  setUser({ token, email, id });
+		  localStorage.setItem("user", JSON.stringify({ token, email, id }));
+		  resolve(true);
+		});
+	  };
+	  
 
 	const logout = () => {
 		setUser(null);
 		localStorage.removeItem("user");
+		return <Navigate to="/login" />
 	}
 
 	const authContextValue = {

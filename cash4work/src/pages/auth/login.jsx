@@ -23,18 +23,19 @@ function Login() {
       const data = await response.json();
       if (response.ok) {
         const { accessToken, id } = data;
-        console.log(id)
-      //  localStorage.setItem("accessToken", accessToken);
-	     login(accessToken, email, id);
-        navigate("/jobs");
+        console.log(id);
+        login(accessToken, email, id).then(() => {
+          navigate("/jobs");
+        });
       } else {
         setError(data.message);
       }
     } catch (error) {
-		console.log(error);
+      console.log(error);
       setError("Something went wrong");
     }
   };
+  
 
   return (
     <div className="bg-gray-100 h-screen flex flex-col justify-center items-center px-4 text-base">

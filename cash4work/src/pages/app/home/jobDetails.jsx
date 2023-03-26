@@ -17,7 +17,6 @@ export default function JobDetails() {
 	}, [])
 
 	function applyJob() {
-		console.log(user)
 		alert("Job Applied");
 		fetch(API_URL+"/jobs/apply", {
 			method: "POST",
