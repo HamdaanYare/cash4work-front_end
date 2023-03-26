@@ -8,7 +8,7 @@ import { useAuthContext } from "../../../context"
 import "./Messenger.css";
 
 let estatus = true;
-let messageId = 0;
+let messageId;
 function History({ messages }) {
 	const { user } = useAuthContext();
 	return (
@@ -91,6 +91,8 @@ function Chat(id) {
 
 export default function MessengerDetails() {
 	const { state } = useLocation()
+		const { user } = useAuthContext();
+
 	const navigate = useNavigate()
 	const data = state?.data
 	messageId = data?.id;
@@ -104,7 +106,7 @@ export default function MessengerDetails() {
 				<MdOutlineKeyboardBackspace size={30} className="opacity-60" />
 			</button>
 
-			<h1 className="text-2xl font-semibold mt-3">{data?.name}</h1>
+			<h1 className="text-2xl font-semibold mt-3">{user.id === data.applied_by ? data.posted_by_fname : data.applied_by_fname}</h1>
 			{/* <p className="mt-4">
 				{data?.organization} • {data?.location}{" "}
 				<span className="opacity-60">{data?.datePosted}</span>
