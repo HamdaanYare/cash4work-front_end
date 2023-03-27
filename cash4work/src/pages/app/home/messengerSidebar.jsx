@@ -1,16 +1,26 @@
-import React, { useEffect, useState } from "react"
-import { useLocation } from "react-router-dom"
-import MessengerListItem from "./messengerListItem"
-import { useAuthContext } from "../../../context"
-const API_URL = 'http://localhost:8088'; // Replace with your backend server URL
+import React, { useEffect, useState, useCallback, useRef } from "react";
+import { useLocation, useNavigate } from "react-router-dom";
+import MessengerListItem from "./messengerListItem";
+import { useAuthContext } from "../../../context";
+const API_URL = "http://localhost:8088";
 
-export default function MessengerSidebar() {
-	const { pathname } = useLocation()
-	const pathReqExp = /^\/Messenger\/\w{1,}$/
-	const { user } = useAuthContext()
-	const [conversations, setConversations] = useState([]);
+const MessengerSidebar = React.memo(() => {
+	const { pathname } = useLocation();
+  const pathReqExp = /^\/Messenger\/\w{1,}$/;
+  const { user } = useAuthContext();
+  const [conversations, setConversations] = useState([]);
+  const navigate = useNavigate();
+
+  const handleClick = useCallback(
+    (conversationId, data) => {
+      navigate(`${conversationId}`, { state: { data } });
+    },
+    [navigate]
+  );
 	//let conv = new Set();
-	useEffect(() => {
+	const conversationsRef = useRef([]);
+
+  useEffect(() => {
     fetch(API_URL + "/message/list/" + user.id)
       .then((response) => response.json())
       .then((data) => {
@@ -18,14 +28,20 @@ export default function MessengerSidebar() {
 
         let convMap = new Map();
         data.forEach(e => {
-          let conversation_id = e.applied_by+"-"+e.posted_by+"-"+e.job_id;
+          let conversation_id = e.applied_by + "-" + e.posted_by + "-" + e.job_id;
           if (!convMap.has(conversation_id)) {
-            convMap.set(conversation_id, {conversation_id, ...e});
+            convMap.set(conversation_id, { conversation_id, ...e });
           }
         });
 
-        setConversations([...convMap.values()]);
-        console.log("MessengerSidebar Conv: ", convMap);
+        const newConversations = [...convMap.values()];
+        if (
+          newConversations.length !== conversationsRef.current.length ||
+          newConversations.some((conv, index) => conv.conversation_id !== conversationsRef.current[index]?.conversation_id)
+        ) {
+          setConversations(newConversations);
+          conversationsRef.current = newConversations;
+        }
       });
   }, []);
 	return (
@@ -41,10 +57,15 @@ export default function MessengerSidebar() {
 
 			<div className="h-full overflow-y-scroll flex-1">
 				{conversations.map((conv) => (
-					//console.log("msgSideBar conv",conv),
-					<MessengerListItem key={conv.conversation_id} data={conv} />
-				))}
+          <MessengerListItem
+            key={conv.conversation_id}
+            data={conv}
+            handleClick={() => handleClick(conv.conversation_id, conv)}
+          />
+        ))}
 			</div>
 		</div>
 	)
-}
+});
+
+export default MessengerSidebar;

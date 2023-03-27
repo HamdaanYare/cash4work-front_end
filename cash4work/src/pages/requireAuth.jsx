@@ -28,9 +28,8 @@ export default function RequireAuth() {
         });
     }
   }, [user]);
-
   // If user object is not present, navigate to the login page
-  if (!user) {
+  if (user === null) {
     return <Navigate to={"/login"} state={{ from: location }} replace />;
   }
 

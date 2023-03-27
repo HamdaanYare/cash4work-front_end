@@ -4,11 +4,8 @@ import { Navigate, Outlet, useLocation } from "react-router-dom";
 const AuthContext = createContext()
 
 export default function AuthProvider({ children }) {
-	const [user, setUser] = useState(null);
-	useEffect(() => {
-		localStorage.setItem("user", JSON.stringify(user))
-	  }, [user]);
-	  
+	const [user, setUser] = useState(localStorage.getItem("user"));
+
 	  const login = (token, email, id) => {
 		return new Promise((resolve) => {
 		  setUser({ token, email, id });
