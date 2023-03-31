@@ -2,15 +2,16 @@ import React, { useEffect } from "react";
 import { Navigate, Outlet, useLocation } from "react-router-dom";
 import Navbar from "../components/navbar";
 import { useAuthContext } from "../context";
-const API_URL = "https://cash4-work-backend.vercel.app";
+// const API_URL = "https://cash4-work-backend.vercel.app";
+import secrets from "../secret";
 
 export default function RequireAuth() {
   const location = useLocation();
   const { user, logout } = useAuthContext();
-
+  console.log("user at requireAuth", user);
   useEffect(() => {
     if (user) {
-      fetch(API_URL + "/user/verify", {
+      fetch(secrets.API_2 + "/user/verify", {
         method: "POST",
         headers: { "Content-Type": "application/json" },
         body: JSON.stringify({ token: user.token, email: user.email }),

@@ -3,6 +3,7 @@ import { useLocation, useNavigate } from "react-router-dom";
 import MessengerListItem from "./messengerListItem";
 import { useAuthContext } from "../../../context";
 const API_URL = "http://localhost:8088";
+import secrets from "../../../secret";
 
 const MessengerSidebar = React.memo(() => {
 	const { pathname } = useLocation();
@@ -21,7 +22,7 @@ const MessengerSidebar = React.memo(() => {
 	const conversationsRef = useRef([]);
 
   useEffect(() => {
-    fetch(API_URL + "/message/list/" + user.id)
+    fetch(secrets.API_2 + "/message/list/" + user.id)
       .then((response) => response.json())
       .then((data) => {
         console.log("MessengerSidebar: ", data);

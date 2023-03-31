@@ -3,7 +3,6 @@ import { Contact, About, Service, Home, Login, NotFound, PostJob, Chat, Messenge
 import JobDetails from "./pages/app/home/jobDetails";
 import MessengerDetails from "./pages/app/home/messengerDetails";
 import RequireAuth from "./pages/requireAuth";
-
 export default function App() {
   return (
     <Router>

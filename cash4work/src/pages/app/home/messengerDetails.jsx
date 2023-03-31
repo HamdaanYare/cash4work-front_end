@@ -8,6 +8,7 @@ import { useAuthContext } from "../../../context"
 import "./Messenger.css";
 import { Link } from "react-router-dom";
 import { jobList } from "./jobsSidebar";
+import secrets from "../../../secret";
 let estatus = true;
 let messageId, stateData;
 const History = React.memo(({ messages }) => {
@@ -35,7 +36,7 @@ const Chat = React.memo(({ id }) => {
 	const [socket, setSocket] = useState(null);
 	useEffect(() => {
 		// Connect to the Socket.IO server
-		const newSocket = io(SERVER_URL);
+		const newSocket = io(secrets.API);
 		setCurrentSocket(newSocket);
 
 		// Add event listeners for incoming messages
@@ -62,7 +63,7 @@ const Chat = React.memo(({ id }) => {
 	}, [messageId]); // Only run this effect when messageId changes
 
 	useEffect(() => { // this socket is for getting updates of the messages
-		const mainSocket = io(SERVER_URL);
+		const mainSocket = io(secrets.API);
 		setSocket(mainSocket);
 
 		// Add event listeners for incoming messages

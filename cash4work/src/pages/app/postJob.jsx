@@ -2,11 +2,12 @@ import React, { useState } from "react"
 import {useRef} from 'react';
 import { useAuthContext } from "../../context"
 import { Link, useNavigate } from "react-router-dom"
+import secrets from "../../secret";
 
 export default function PostJob() {
 	let btnRef = useRef();
 	let navigate = useNavigate();
-	const API_URL = "http://localhost:8088"; // Replace with your backend server URL
+//	const API_URL = "http://localhost:8088"; // Replace with your backend server URL
 	const { user } = useAuthContext();
 	const [form, setForm] = useState({
 		title: "",
@@ -23,7 +24,7 @@ export default function PostJob() {
 		setForm((prev) => ({ ...prev, posted_by: user.id }))
 		console.log(form);
 		btnRef.current.setAttribute("disabled", "disabled");
-		fetch(API_URL+"/jobs", {
+		fetch(secrets.API_2+"/jobs", {
 			method: "POST",
 			headers: { 'Content-Type': 'application/json' },
 			body: JSON.stringify(form)

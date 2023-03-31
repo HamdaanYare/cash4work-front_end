@@ -4,9 +4,10 @@ import { MdOutlineKeyboardBackspace } from "react-icons/md"
 import { useLocation, useNavigate } from "react-router-dom"
 import moment from "moment"
 import { useAuthContext } from "../../../context"
+import secrets from "../../../secret"
 
 export default function JobDetails() {
-	const API_URL = 'http://localhost:8088'; // Replace with your backend server URL
+	//const API_URL = 'http://localhost:8088'; // Replace with your backend server URL
 	const { user } = useAuthContext()
 	const { state } = useLocation()
 	const navigate = useNavigate()
@@ -17,12 +18,14 @@ export default function JobDetails() {
 	}, [])
 
 	function applyJob() {
-		alert("Job Applied");
-		fetch(API_URL+"/jobs/apply", {
+		
+		fetch(secrets.API_2+"/jobs/apply", {
 			method: "POST",
 			headers: { "Content-Type": "application/json" },
 			body: JSON.stringify( {job_id: data.id, applied_by: user.id} ),
 		});
+		alert("Job Applied");
+		navigate("/jobs")
 
 	}
 
