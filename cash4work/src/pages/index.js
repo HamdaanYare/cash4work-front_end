@@ -3,6 +3,7 @@ export { default as Home } from "./app/home";
 // export { default as Services } from "./app/home/Services"
 
 export { default as PostJob } from "./app/postJob";
+export { default as AppliedJobs } from "./app/home/appliedjobs";
 export { default as Messenger } from "./app/home/Messenger";
 export { default as Contact } from "./app/contact";
 export { default as Resume } from "./app/resume";

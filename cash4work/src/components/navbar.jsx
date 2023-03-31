@@ -47,6 +47,9 @@ export default function Navbar() {
 
 				<div className="flex items-center gap-4">
 					<div className="mr-8 flex gap-8">
+					<Link className="text-primary" to="/AppliedJobs">
+					AppliedJobs 
+						</Link>
 						<Link className="text-primary" to="/post-job">
 							Post Job
 						</Link>
