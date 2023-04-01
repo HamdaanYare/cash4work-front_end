@@ -4,6 +4,7 @@ export { default as Home } from "./app/home";
 
 export { default as PostJob } from "./app/postJob";
 export { default as AppliedJobs } from "./app/home/appliedjobs";
+export { default as Profile } from "./app/home/Profile";
 export { default as Messenger } from "./app/home/Messenger";
 export { default as Contact } from "./app/contact";
 export { default as Resume } from "./app/resume";
