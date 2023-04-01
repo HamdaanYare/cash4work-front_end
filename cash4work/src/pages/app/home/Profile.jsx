@@ -1,70 +1,7 @@
-// import React from 'react';
-
-// const Profile = () => {
-//   const education = [
-//     {
-//       institution: 'University of XYZ',
-//       degree: 'Bachelor of Science in Computer Science',
-//       year: '2010 - 2014',
-//     },
-//     {
-//       institution: 'University of ABC',
-//       degree: 'Master of Business Administration',
-//       year: '2015 - 2017',
-//     },
-//   ];
-
-//   const experiences = [
-//     {
-//       company: 'ABC Company',
-//       position: 'Software Developer',
-//       year: '2014 - 2015',
-//     },
-//     {
-//       company: 'XYZ Company',
-//       position: 'Senior Software Developer',
-//       year: '2015 - 2019',
-//     },
-//     {
-//       company: 'PQR Company',
-//       position: 'Technical Lead',
-//       year: '2019 - present',
-//     },
-//   ];
-
-//   return (
-//     <div>
-//       <h1>Profile</h1>
-//       <h2>Education</h2>
-//       <ul>
-//         {education.map((edu, index) => (
-//           <li key={index}>
-//             <h3>{edu.degree}</h3>
-//             <p>{edu.institution}</p>
-//             <p>{edu.year}</p>
-//           </li>
-//         ))}
-//       </ul>
-
-//       <h2>Experience</h2>
-//       <ul>
-//         {experiences.map((exp, index) => (
-//           <li key={index}>
-//             <h3>{exp.position}</h3>
-//             <p>{exp.company}</p>
-//             <p>{exp.year}</p>
-//           </li>
-//         ))}
-//       </ul>
-//     </div>
-//   );
-// };
-
-// export default Profile;
-
 import React, { useState } from 'react';
+import { AiFillEdit, AiFillDelete, AiFillPlusCircle } from 'react-icons/ai';
+import { TiTick, TiCancel } from 'react-icons/ti';
 import "./Profile.css"
-
 const Profile = () => {
   const [education, setEducation] = useState([
     {
@@ -184,112 +121,145 @@ const Profile = () => {
 
   return (
     <div className="profile">
-      <h1>My Profile</h1>
-  <div className="education">
-    <h2>Education</h2>
-    {education.map((edu, index) => (
-      <div key={index}>
-        {editEducationIndex === index ? (
-          <div>
-            <input
-              type="text"
-              name="institution"
-              value={newEducation.institution}
-              onChange={handleEducationChange}
-            />
-            <input
-              type="text"
-              name="degree"
-              value={newEducation.degree}
-              onChange={handleEducationChange}
-            />
-            <input
-              type="text"
-              name="year"
-              value={newEducation.year}
-              onChange={handleEducationChange}
-            />
-            <button onClick={updateEducation}>Save</button>
-            <button onClick={() => setEditEducationIndex(-1)}>Cancel</button>
-          </div>
-        ) : (
-          <div>
-            <h3>{edu.institution}</h3>
-            <p>{edu.degree}</p>
-            <p>{edu.year}</p>
-            <button onClick={() => editEducation(index)}>Edit</button>
-            <button onClick={() => deleteEducation(index)}>Delete</button>
-          </div>
-        )}
+  <h1 className="text-3xl font-semibold mb-5">My Profile</h1>
+  <div className="flex flex-wrap gap-5">
+    {/* Education section */}
+    <div className="education w-full lg:w-1/2">
+      <h2 className="text-2xl font-semibold mb-4">Education</h2>
+      {education.map((edu, index) => (
+        <div key={index} className="mb-3">
+          {editEducationIndex === index ? (
+            <div>
+              <input
+                type="text"
+                name="institution"
+                className="w-full px-4 py-2 mb-2 border border-gray-300 rounded-md"
+                value={newEducation.institution}
+                onChange={handleEducationChange}
+              />
+               <input
+                        type="text"
+                        name="degree"
+                        className="form-control mb-2"
+                        value={newEducation.degree}
+                        onChange={handleEducationChange}
+                      />
+                      <input
+                        type="text"
+                        name="year"
+                        className="form-control mb-2"
+                        value={newEducation.year}
+                        onChange={handleEducationChange}
+                      />
+                      <div className="card-footer text-right">
+                      <button className="bg-blue-500 text-white py-1 px-3 mr-2 rounded-md" onClick={updateEducation}> <TiTick/> </button>
+                      <button className="bg-red-500 text-white py-1 px-3 rounded-md" onClick={() => setEditEducationIndex(-1)}> <TiCancel/> </button>
+                      </div>
+            </div>
+          ) : (
+            <div>
+              <h3 className="text-xl font-semibold mb-2">{edu.institution}</h3>
+              <p className="mb-1">{edu.degree}</p>
+              <p className="mb-1">{edu.year}</p>
+              <div className="card-footer text-right">
+              <button className="bg-blue-500 text-white py-1 px-3 mr-2 rounded-md" onClick={() => editEducation(index)}>
+                <AiFillEdit />
+              </button>
+              <button className="bg-red-500 text-white py-1 px-3 rounded-md" onClick={() => deleteEducation(index)}>
+                <AiFillDelete />
+              </button>
+
+              </div>
+            </div>
+          )}
+        </div>
+      ))}
+      <div>
+      <input
+                  type="text"
+                  name="institution"
+                  className="form-control mb-2"
+                  placeholder="Institution"
+                  value={newEducation.institution}
+                  onChange={handleEducationChange}
+                />
+                <input
+                  type="text"
+                  name="degree"
+                  className="form-control mb-2"
+                  placeholder="Degree"
+                  value={newEducation.degree}
+                  onChange={handleEducationChange}
+                />
+                <input
+                  type="text"
+                  name="year"
+                  className="form-control mb-2"
+                  placeholder="Year"
+                  value={newEducation.year}
+                  onChange={handleEducationChange}
+                />
       </div>
-    ))}
-    <div>
-      <input
-        type="text"
-        name="institution"
-        placeholder="Institution"
-        value={newEducation.institution}
-        onChange={handleEducationChange}
-      />
-      <input
-        type="text"
-        name="degree"
-        placeholder="Degree"
-        value={newEducation.degree}
-        onChange={handleEducationChange}
-      />
-      <input
-        type="text"
-        name="year"
-        placeholder="Year"
-        value={newEducation.year}
-        onChange={handleEducationChange}
-      />
-      <button onClick={addEducation}>Add</button>
+      <div className="card-footer text-right">
+              <button className="bg-blue-500 text-white py-1 px-3 mr-2 rounded-md" onClick={addEducation}><AiFillPlusCircle/></button>
+      </div>
     </div>
-  </div>
-  <div className="experience">
-    <h2>Experience</h2>
-    {experiences.map((exp, index) => (
-      <div key={index}>
-        {editExperienceIndex === index ? (
-          <div>
-            <input
-              type="text"
-              name="company"
-              value={newExperience.company}
-              onChange={handleExperienceChange}
-            />
-            <input
+
+    {/* Experience section */}
+    <div className="experience w-full lg:w-1/2">
+      <h2 className="text-2xl font-semibold mb-4">Experience</h2>
+      {experiences.map((exp, index) => (
+        <div key={index} className="mb-3">
+          {editExperienceIndex === index ? (
+            <div>
+              <input
+                type="text"
+                name="company"
+                className="w-full px-4 py-2 mb-2 border border-gray-300 rounded-md"
+                value={newExperience.company}
+                onChange={handleExperienceChange}
+              />
+              <input
               type="text"
               name="position"
+              className="form-control mb-2"
               value={newExperience.position}
               onChange={handleExperienceChange}
             />
             <input
               type="text"
               name="year"
+              className="form-control mb-2"
               value={newExperience.year}
               onChange={handleExperienceChange}
             />
-            <button onClick={updateExperience}>Save</button>
-            <button onClick={() => setEditExperienceIndex(-1)}>Cancel</button>
-          </div>
-        ) : (
-          <div>
-            <h3>{exp.company}</h3>
-            <p>{exp.position}</p>
-            <p>{exp.year}</p>
-            <button onClick={() => editExperience(index)}>Edit</button>
-            <button onClick={() => deleteExperience(index)}>Delete</button>
-          </div>
-        )}
-      </div>
-    ))}
-    <div>
+            <div className="card-footer text-right">
+            <button className="bg-blue-500 text-white py-1 px-3 mr-2 rounded-md" onClick={updateExperience}> <TiTick/> </button>
+            <button className="bg-red-500 text-white py-1 px-3 rounded-md" onClick={() => setEditExperienceIndex(-1)}> <TiCancel/> </button>
+            </div>
+            </div>
+          ) : (
+            <div>
+              <h3 className="text-xl font-semibold mb-2">{exp.company}</h3>
+              <p className="mb-1">{exp.position}</p>
+              <p className="mb-1">{exp.year}</p>
+              <div className="card-footer text-right">
+              <button className="bg-blue-500 text-white py-1 px-3 mr-2 rounded-md" onClick={() => editExperience(index)}>
+                <AiFillEdit />
+              </button>
+              <button className="bg-red-500 text-white py-1 px-3 rounded-md" onClick={() => deleteExperience(index)}>
+                <AiFillDelete />
+              </button>
+            </div>
+            </div>
+          )}
+        </div>
+      ))}
+      <div>
       <input
         type="text"
         name="company"
+        className="form-control mb-2"
         placeholder="Company"
         value={newExperience.company}
         onChange={handleExperienceChange}
@@ -297,6 +267,7 @@ const Profile = () => {
       <input
         type="text"
         name="position"
+        className="form-control mb-2"
         placeholder="Position"
         value={newExperience.position}
         onChange={handleExperienceChange}
@@ -304,14 +275,19 @@ const Profile = () => {
       <input
         type="text"
         name="year"
+        className="form-control mb-2"
         placeholder="Year"
         value={newExperience.year}
         onChange={handleExperienceChange}
       />
-      <button onClick={addExperience}>Add</button>
+      </div>
+      <div className="card-footer text-right">
+    <button className="bg-blue-500 text-white py-1 px-3 mr-2 rounded-md" onClick={addExperience}> <AiFillPlusCircle/> </button>
+  </div>
     </div>
   </div>
 </div>
+
 );
 };
 

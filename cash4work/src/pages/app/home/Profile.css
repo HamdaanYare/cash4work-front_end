@@ -1,66 +1,101 @@
 .profile {
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    margin-top: 50px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  margin-top: 50px;
+  max-width: 800px;
+  margin-left: auto;
+  margin-right: auto;
+}
+
+.profile-container {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 20px;
+  margin-bottom: 20px;
+}
+
+.education,
+.experience {
+  flex: 1;
+  padding: 20px;
+  background-color: #ffffff;
+  box-shadow: 0 1px 3px rgba(0, 0, 0, 0.12), 0 1px 2px rgba(0, 0, 0, 0.24);
+  border-radius: 4px;
+}
+
+.profile h1,
+.profile h2,
+.profile h3 {
+  margin-bottom: 10px;
+}
+
+.profile h1 {
+  font-size: 32px;
+  font-weight: 500;
+}
+
+.profile h2 {
+  font-size: 24px;
+  font-weight: 500;
+  color: #4a4a4a;
+}
+
+.profile h3 {
+  font-size: 20px;
+  font-weight: 500;
+  color: #6a6a6a;
+}
+
+.profile p {
+  font-size: 18px;
+}
+.button-container {
+  display: flex;
+  justify-content: flex-end;
+}
+.profile input[type='text'] {
+  width: 100%;
+  max-width: 400px;
+  height: 30px;
+  margin-bottom: 10px;
+  padding: 5px;
+  font-size: 16px;
+  border: 1px solid #ddd;
+  border-radius: 3px;
+}
+
+.profile-button {
+  padding: 8px 16px;
+  margin-right: 10px;
+  border: none;
+  background-color: #4CAF50;
+  color: white;
+  font-size: 16px;
+  cursor: pointer;
+  border-radius: 3px;
+  transition: background-color 0.3s;
+}
+
+.profile-button:hover {
+  background-color: #3e8e41;
+}
+
+.profile button:disabled {
+  opacity: 0.5;
+  cursor: not-allowed;
+}
+
+/* Media queries */
+@media (max-width: 768px) {
+  .education,
+  .experience {
+    flex-basis: 100%;
   }
-  
-  .education, .experience {
-    width: 100%;
-    margin-bottom: 20px;
+}
+
+@media (max-width: 480px) {
+  .profile {
+    margin-top: 30px;
   }
-  
-  h1, h2, h3 {
-    margin: 0;
-  }
-  
-  h1 {
-    font-size: 32px;
-    font-weight: bold;
-    margin-bottom: 20px;
-  }
-  
-  h2 {
-    font-size: 24px;
-    font-weight: bold;
-    margin-bottom: 10px;
-  }
-  
-  h3 {
-    font-size: 20px;
-    font-weight: bold;
-    margin-bottom: 5px;
-  }
-  
-  p {
-    margin: 0;
-    font-size: 18px;
-  }
-  
-  input[type="text"] {
-    width: 100%;
-    height: 30px;
-    margin-bottom: 10px;
-    padding: 5px;
-    font-size: 16px;
-  }
-  
-  button {
-    padding: 5px 10px;
-    margin-right: 10px;
-    border: none;
-    background-color: #4CAF50;
-    color: white;
-    font-size: 16px;
-    cursor: pointer;
-  }
-  
-  button:hover {
-    background-color: #3e8e41;
-  }
-  
-  button:disabled {
-    opacity: 0.5;
-    cursor: not-allowed;
-  }
-  
+}

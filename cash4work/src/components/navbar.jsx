@@ -65,12 +65,12 @@ export default function Navbar() {
 						<Link className="text-primary" to="/About">
 							About
 						</Link>
-						<Link className="text-primary" to="/Service">
+						{/* <Link className="text-primary" to="/Service">
 							Service
 						</Link>
 						<Link className="text-primary" to="/CreateAd">
 							CreateAd
-						</Link>
+						</Link> */}
 						<Link className="text-primary" to="/Chat">
 							Chat
 						</Link>
