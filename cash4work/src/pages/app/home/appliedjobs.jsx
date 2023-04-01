@@ -1,29 +1,62 @@
 import React, { useState, useEffect } from 'react';
+import secrets from '../../../secret';
+import { useAuthContext } from '../../../context';
 
 const AppliedJobs = () => {
   const [jobs, setJobs] = useState([]);
+  const { user } = useAuthContext();
 
   useEffect(() => {
     // Code to fetch applied jobs from API
-    const API_URL = "https://cash4-work-backend.vercel.app";
-    fetch(`${API_URL}/applied-jobs`)
-      .then(response => response.json())
-      .then(data => setJobs(data))
-      .catch(error => console.log(error));
+    const fetchJobs = async () => {
+      try {
+        const initialJobsResponse = await fetch(secrets.API_2 + "/jobs");
+        const initialJobs = await initialJobsResponse.json();
+  
+        const appliedJobsResponse = await fetch(
+          secrets.API_2 + "/jobs/applied/" + user.id
+        );
+        const appliedJobs = await appliedJobsResponse.json();
+  
+        const filteredJobListings = initialJobs.filter((initialJob) => {
+          return appliedJobs.some(
+            (appliedJob) => appliedJob.job_id === initialJob.id
+          );
+        });
+  
+        setJobs(filteredJobListings);
+      } catch (error) {
+        console.error("Error fetching jobs:", error);
+      }
+    };
+  
+    fetchJobs();
   }, []);
 
   return (
-    <div style={styles.container}>
-      <h1 style={styles.heading}>Applied Jobs</h1>
-      {jobs.length === 0 && <p>No applied jobs found.</p>}
+<div className="bg-gray-100 min-h-screen">
+  <div className="max-w-7xl mx-auto py-6 sm:px-6 lg:px-8">
+    <div className="px-4 py-6 sm:px-0">
+      <h1 className="text-3xl font-semibold text-gray-900 mb-6">Applied Jobs</h1>
+      {jobs.length === 0 && (
+        <p className="text-lg text-gray-600">No applied jobs found.</p>
+      )}
       {jobs.map(job => (
-        <div key={job.id} style={styles.job}>
-          <h2>{job.title}</h2>
-          <p>{job.company}</p>
-          <p>{job.description}</p>
+        <div
+          key={job.id}
+          className="bg-white shadow rounded-lg p-6 mb-6 border border-gray-200"
+        >
+          <h2 className="text-2xl font-semibold text-gray-800 mb-2">
+            {job.title}
+          </h2>
+          <p className="text-lg text-gray-600 mb-2">{job.location}</p>
+          <p className="text-gray-500">{job.description}</p>
         </div>
       ))}
     </div>
+  </div>
+</div>
+
   );
 };
 
