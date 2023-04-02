@@ -1,5 +1,5 @@
 import { BrowserRouter as Router, Navigate, Route, Routes } from "react-router-dom";
-import { Contact, About, Service, Home, Login, NotFound, PostJob,AppliedJobs,Profile, Chat, Messenger, Resume, Signup, CreateAd } from "./pages";
+import { Contact, About, Service, Home, Login, NotFound, PostJob,AppliedJobs,Profile,Worker, Chat, Messenger, Resume, Signup, CreateAd } from "./pages";
 import JobDetails from "./pages/app/home/jobDetails";
 import MessengerDetails from "./pages/app/home/messengerDetails";
 import RequireAuth from "./pages/requireAuth";
@@ -31,6 +31,7 @@ export default function App() {
           <Route path="Chat" element={<Chat />} />
           <Route path="AppliedJobs" element={<AppliedJobs />} />
           <Route path="Profile" element={<Profile />} />
+          <Route path="Worker" element={<Worker />} />
         </Route>
 
         {/* 404 Not Found route */}
