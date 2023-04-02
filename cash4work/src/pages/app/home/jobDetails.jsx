@@ -1,5 +1,5 @@
 import React, { useEffect } from "react"
-import { FaBriefcase } from "react-icons/fa"
+import { FaBriefcase, FaMapMarkerAlt, FaCalendarAlt, FaDollarSign } from "react-icons/fa"
 import { MdOutlineKeyboardBackspace } from "react-icons/md"
 import { useLocation, useNavigate } from "react-router-dom"
 import moment from "moment"
@@ -30,58 +30,52 @@ export default function JobDetails() {
 	}
 
 	return (
-		<div className="w-[100%] py-3 px-8 bg-white overflow-y-auto border-[1px] border-gray-300 border-l-0 md:rounded-tr-xl md:w-[60%]">
-			<button onClick={() => navigate("/jobs")} className="md:hidden">
-				<MdOutlineKeyboardBackspace size={30} className="opacity-60" />
-			</button>
+<div className="w-full py-6 px-8 bg-white overflow-y-auto border border-gray-300 border-l-0 md:rounded-tr-xl md:w-3/5">
+  <button onClick={() => navigate("/jobs")} className="md:hidden">
+    <MdOutlineKeyboardBackspace size={30} className="text-opacity-60" />
+  </button>
 
-			<h1 className="text-2xl font-semibold mt-3">{data?.title}</h1>
-			<p className="mt-4">
-				• {data?.location}{" • "}
-				<span className="opacity-60">Posted on: {moment(data?.post_date).format('YYYY-MM-DD')}</span>
-				{" • "}
-				Salary ${data?.salary}
-				{" • "}
-			</p>
+  <h1 className="text-3xl font-semibold mb-6">{data?.title}</h1>
 
-			<div className="mt-4 flex items-center gap-3 opacity-60">
-				<FaBriefcase size={20} />
-				<div>
-					<span>Needed on</span>
-					{" • "}
-					<span>{moment(data?.need_on).format('YYYY-MM-DD hh:mm')}</span>
-				</div>
-			</div>
-			<p className="mt-6">{data?.description}</p>
-{/* 
-			<div className="mt-4">
-				<span className="font-semibold">Job Responsiblities</span>
-				<ul className="list-disc ml-10 mt-4">
-					{data?.jobResponsibilities.map((responsiblity, _) => (
-						<li key={_}>{responsiblity}</li>
-					))}
-				</ul>
-			</div>
+  <div className="relative mb-10">
+    <div className="absolute top-0 left-0 w-full h-full bg-gradient-to-r from-blue-500 via-primary to-blue-600 rounded-lg"></div>
+    <div className="relative p-4">
+      <div className="grid grid-cols-2 gap-4 text-white">
+        <div className="flex items-center">
+          <FaMapMarkerAlt size={18} />
+          <span className="ml-2">{data?.location}</span>
+        </div>
+        <div className="flex items-center">
+          <FaCalendarAlt size={18} />
+          <span className="ml-2">{moment(data?.post_date).format('YYYY-MM-DD')}</span>
+        </div>
+        <div className="flex items-center">
+          <FaBriefcase size={18} />
+          <div className="ml-2">
+            <span>Needed on</span>
+            <span className="mx-1">•</span>
+            <span>{moment(data?.need_on).format('YYYY-MM-DD hh:mm')}</span>
+          </div>
+        </div>
+        <div className="flex items-center">
+          <FaDollarSign size={18} />
+          <span className="ml-2">Salary ${data?.salary}</span>
+        </div>
+      </div>
+    </div>
+  </div>
 
-			<div className="mt-4">
-				<span className="font-semibold">Job Requirements</span>
-				<ul className="list-disc ml-10 mt-4">
-					{data?.jobRequirements.map((requirement, _) => (
-						<li key={_}>{requirement}</li>
-					))}
-				</ul>
-			</div>
- */}
-			<div className="flex items-center gap-2 mt-8 justify-end">
-			<button onClick={() => applyJob()} className="bg-primary rounded-full text-white text-base font-semibold px-6 py-2 hover:opacity-80">
-				Apply
-			</button>
+  <p className="mt-2 text-base mb-8">{data?.description}</p>
+  <div className="flex items-center gap-4 mt-4 justify-end">
+    <button onClick={() => applyJob()} className="bg-primary hover:bg-primary-dark text-white text-base font-semibold px-6 py-2 rounded-lg shadow-md transition-colors duration-300">
+      Apply
+    </button>
 
-			<button onClick={() => saveJob(data)} className="bg-white border-[1px] border-primary rounded-full text-primary text-base font-semibold px-6 py-2 hover:opacity-80">
-					Save
-			</button>
+    <button onClick={() => saveJob(data)} className="bg-white border border-primary hover:border-primary-dark text-primary text-base font-semibold px-6 py-2 rounded-lg shadow-md transition-colors duration-300">
+      Save
+    </button>
+  </div>
+</div>
 
-			</div>
-		</div>
 	)
 }

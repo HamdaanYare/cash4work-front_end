@@ -45,24 +45,24 @@ export default function JobListItem({ data }) {
 
 	return (
 		<div
-			onClick={handleClick}
-			className={`flex gap-3 ${
-				pathname === `/jobs/${data.id}` && "bg-blue-50"
-			} hover:bg-neutral-100 flex-1 cursor-pointer`}
-		>
-			<div className="m-3 w-14 h-14 bg-gray-200 grid place-items-center">
-				<JobIcon title={data.title} />
-			</div>
+      onClick={handleClick}
+      className={`flex gap-4 p-4 cursor-pointer transition-colors duration-300 ${
+        pathname === `/jobs/${data.id}` ? "bg-blue-100" : "hover:bg-gray-100"
+      }`}
+    >
+      <div className="w-14 h-14 bg-white grid place-items-center rounded-lg border border-gray-300">
+        <JobIcon title={data.title} />
+      </div>
 
-			<div className="border-b-[1px] flex-1 border-gray-200 border-r-[1px] border-r-gray-300  py-3">
-				<h2 className="font-semibold text-base text-primary">
-					{data.title}
-				</h2>
-				<p className="mt-1">${data.salary}</p>
-				<p className="opacity-60">{data.location}</p>
+      <div className="flex flex-col gap-1.5 flex-grow">
+        <h2 className="font-semibold text-base text-primary">{data.title}</h2>
+        <p className="text-sm">${data.salary}</p>
+        <p className="text-sm text-opacity-60">{data.location}</p>
 
-				<p className="mt-4 text-[12px] opacity-60">{moment(data?.need_on).format('YYYY-MM-DD hh:mm')}</p>
-			</div>
-		</div>
+        <p className="text-xs text-opacity-60 mt-2">
+          {moment(data?.need_on).format('YYYY-MM-DD hh:mm')}
+        </p>
+      </div>
+    </div>
 	)
 }
