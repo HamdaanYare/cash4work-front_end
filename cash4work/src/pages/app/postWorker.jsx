@@ -38,7 +38,7 @@ export default function PostWorker() {
 				onSubmit={handleSubmit}
 				className="bg-white flex flex-col mx-auto w-full max-w-3xl rounded-xl py-6 px-7 overflow-hidden shadow-lg shadow-gray-200"
 			>
-				<h1 className="font-semibold text-2xl mb-2">Post a Job</h1>
+				<h1 className="font-semibold text-2xl mb-2">Post Worker</h1>
 
 				<label className="text-gray-700" htmlFor="title">
 					Title

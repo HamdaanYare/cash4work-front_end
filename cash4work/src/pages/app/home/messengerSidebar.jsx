@@ -21,7 +21,7 @@ const MessengerSidebar = React.memo(() => {
 	const conversationsRef = useRef([]);
 
   useEffect(() => {
-    fetch(secrets.API_2 + "/message/list/" + user.id)
+    fetch(secrets.API_2 + "/message/list/" + user.id+"/"+activeOption)
       .then((response) => response.json())
       .then((data) => {
         console.log("MessengerSidebar: ", data);
