@@ -97,4 +97,9 @@
     text-align: center;
     color: #666;
   }
+  #msg{
+    color: blue;
+    font-size: 30px;
+    font-weight: bold;
+  }
     
