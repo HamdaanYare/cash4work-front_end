@@ -22,10 +22,10 @@ export default function WorkerDetails() {
 		fetch(secrets.API_2+"/worker/message", {
 			method: "POST",
 			headers: { "Content-Type": "application/json" },
-			body: JSON.stringify( {work_id: data.id, sender: user.id, receiver: data.user_id} ),
+			body: JSON.stringify( {work_id: data.id, applied_by: user.id, posted_by: data.user_id} ),
 		});
 		alert("Messaged Worker");
-		navigate("/messenger")
+		navigate("/messenger", { state: { type: "workers" } })
 
 	}
 

@@ -10,10 +10,11 @@ const MessengerSidebar = React.memo(() => {
   const { user } = useAuthContext();
   const [conversations, setConversations] = useState([]);
   const navigate = useNavigate();
+  console.log("pathname: ", pathname.data);
   const [activeOption, setActiveOption] = useState("applicants");
   const handleClick = useCallback(
     (conversationId, data) => {
-      navigate(`${conversationId}`, { state: { data, activeOption } });
+      navigate(`${conversationId}`, { state: { data } });
     },
     [navigate]
   );
@@ -43,7 +44,7 @@ const MessengerSidebar = React.memo(() => {
           conversationsRef.current = newConversations;
         }
       });
-  }, []);
+  }, [activeOption]);
 	return (
 		<div
       className={`${
@@ -82,12 +83,23 @@ const MessengerSidebar = React.memo(() => {
             <MessengerListItem
               key={conv.conversation_id}
               data={conv}
-              handleClick={() => handleClick(conv.conversation_id, conv)}
+              handleClick={() => handleClick(conv.conversation_id, {...conv, type: activeOption})}
             />
           ))}
         {activeOption === "workers" && (
           // Display workers-related content here
-          <div>Workers content</div>
+          conversations.length === 0 ? (
+            <div>No worker messages</div>
+          ) : (
+              conversations.map((conv) => (
+            <MessengerListItem
+              key={conv.conversation_id}
+              data={conv}
+              handleClick={() => handleClick(conv.conversation_id, {...conv, type: activeOption})}
+            />
+          )
+              )
+          )
         )}
       </div>
     </div>

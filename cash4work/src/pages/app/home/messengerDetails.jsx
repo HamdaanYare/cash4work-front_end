@@ -42,6 +42,7 @@ const Chat = React.memo(({ id }) => {
 		// Add event listeners for incoming messages
 		newSocket.on('connect', () => {
 			console.log('Connected to server');
+			console.log('stateData', stateData.type);
 			newSocket.emit("chat", {conversation_id: messageId, type: stateData.type});
 		});
 		newSocket.on('chatHistory', (msg) => {
@@ -100,11 +101,11 @@ const Chat = React.memo(({ id }) => {
       const newMessage = {
         id: messageHistory.length + 1,
 		  sender: user.id,
-		receiver: stateData.posted_by,
+		receiver: stateData.applied_by,
 		  message: messageText.trim(),
 		msg_date: getDate(),
       };
-		socket.emit("chat message", [{ conversation_id: messageId, type: stateData.activeOption ,...newMessage }]);
+		socket.emit("chat message", [{ conversation_id: stateData.conversation_id, type: stateData.type ,...newMessage }]);
       setMessageText("");
     }
   }, [messageText, messageHistory, user.email, socket, messageId]);
@@ -135,6 +136,7 @@ export default function MessengerDetails() {
 	const navigate = useNavigate()
 	const data = state?.data
 	stateData = data;
+	//console.log("stateData at 139", stateData)
 	messageId = data?.conversation_id;
 	useEffect(() => {
 		if (!data) navigate("/Messenger")
