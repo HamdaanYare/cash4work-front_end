@@ -42,7 +42,7 @@ const Chat = React.memo(({ id }) => {
 		// Add event listeners for incoming messages
 		newSocket.on('connect', () => {
 			console.log('Connected to server');
-			newSocket.emit("chat", messageId);
+			newSocket.emit("chat", {conversation_id: messageId, type: stateData.type});
 		});
 		newSocket.on('chatHistory', (msg) => {
 			setMessageHistory(msg);
@@ -104,7 +104,7 @@ const Chat = React.memo(({ id }) => {
 		  message: messageText.trim(),
 		msg_date: getDate(),
       };
-		socket.emit("chat message", [{ conversation_id: messageId, ...newMessage }]);
+		socket.emit("chat message", [{ conversation_id: messageId, type: stateData.activeOption ,...newMessage }]);
       setMessageText("");
     }
   }, [messageText, messageHistory, user.email, socket, messageId]);

@@ -1,13 +1,11 @@
 import React from "react";
-import { BsBuilding } from "react-icons/bs";
 import { useLocation } from "react-router-dom";
 import { useAuthContext } from "../../../context";
-import { jobList } from "./jobsSidebar";
-import { Link } from "react-router-dom";
+import { FiUser } from "react-icons/fi";
+
 const MessengerListItem = React.memo(({ data, handleClick }) => {
   const { pathname } = useLocation();
   const { user } = useAuthContext();
- // console.log("MessengerListItem: ", data);
 	return (
 		<div
 			onClick={handleClick}
@@ -15,8 +13,7 @@ const MessengerListItem = React.memo(({ data, handleClick }) => {
 				} hover:bg-neutral-100 flex-1 cursor-pointer`}
 		>
 			<div className="m-3 w-14 h-14 bg-gray-200 grid place-items-center">
-				{/* <BsBuilding size={35} className="text-gray-500" /> 
-				<img src={data.image} alt={data.name} size={35} className="text-gray-500" />*/}
+				<FiUser className="text-gray-500" size={35}/>
 			</div>
 
 			<div className="border-b-[1px] flex-1 border-gray-200 border-r-[1px] border-r-gray-300  py-3">
