@@ -148,7 +148,19 @@ export default function MessengerDetails() {
 				<MdOutlineKeyboardBackspace size={30} className="opacity-60" />
 			</button>
 
-			<h1 className="text-2xl font-semibold mt-3">{user.id === data.applied_by ? data.posted_by_fname : data.applied_by_fname}</h1>
+			<h1 className="text-2xl font-semibold mt-3">
+				{
+					user.id === data.applied_by ?
+						(
+							<Link to={`/Profile/${data.posted_by}`} state={{ name: data.posted_by_fname, id: data.posted_by }}>{data.posted_by_fname}</Link>
+						
+						)
+				:
+				(
+					<Link to={`/Profile/${data.applied_by}`} state={{ name: data.applied_by_fname, id: data.applied_by }}>{data.applied_by_fname}</Link>
+				)
+				}
+			</h1>
 
 			<div className="mt-4 flex items-center gap-3 opacity-60">
 				<FaBriefcase size={20} />

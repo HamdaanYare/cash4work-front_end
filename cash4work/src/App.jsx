@@ -5,6 +5,7 @@ import MessengerDetails from "./pages/app/home/messengerDetails";
 import WorkerDetails from "./pages/app/home/workerDetails";
 import RequireAuth from "./pages/requireAuth";
 import PostWorker from "./pages/app/postWorker";
+import ProfileDetails from "./pages/app/home/ProfileDetails";
 export default function App() {
   return (
     <Router>
@@ -28,6 +29,9 @@ export default function App() {
             <Route path=":id" element={<WorkerDetails />} />
           </Route>
 
+          <Route path="/profile" element={<Profile />}/>
+          <Route path="/profile/:id" element={<ProfileDetails />} />
+
           <Route path="about" element={<About />} />
           <Route path="service" element={<Service />} />
           <Route path="post-job" element={<PostJob />} />
@@ -37,7 +41,7 @@ export default function App() {
           <Route path="createad" element={<CreateAd />} />
           <Route path="Chat" element={<Chat />} />
           <Route path="AppliedJobs" element={<AppliedJobs />} />
-          <Route path="Profile" element={<Profile />} />
+          
         </Route>
 
         {/* 404 Not Found route */}

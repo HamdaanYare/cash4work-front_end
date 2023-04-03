@@ -62,7 +62,7 @@ const searchJobs = (e) => {
   return (
     <div className={`${pathReqExp.test(pathname) ? "hidden" : "flex"} w-full bg-white border border-r-0 border-gray-300 overflow-hidden flex-col md:rounded-tl-xl md:w-2/5 md:flex`}>
       <div className="bg-gradient-to-r from-blue-500 via-primary to-blue-600 rounded-tl-lg p-3">
-        <h2 className="text-base text-white">Workers based on your profile</h2>
+        <h2 className="text-base text-white">Jobs based on your profile</h2>
         <p className="text-xs text-white">{jobs.length} results</p>
       </div>
       <div className="p-3">
@@ -70,7 +70,7 @@ const searchJobs = (e) => {
           className="w-full bg-white border-1.2 border-gray-400 rounded-md py-1.5 px-2"
           type="text"
           onChange={searchJobs}
-          placeholder="Search Workers..."
+          placeholder="Search Jobs..."
         />
       </div>
       <div className="h-full overflow-y-scroll flex-1">

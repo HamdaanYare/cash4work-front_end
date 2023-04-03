@@ -44,25 +44,28 @@ export default function JobListItem({ data }) {
 	const handleClick = () => navigate(`${data.id}`, { state: { data } })
 
 	return (
-		<div
-      onClick={handleClick}
-      className={`flex gap-4 p-4 cursor-pointer transition-colors duration-300 ${
-        pathname === `/jobs/${data.id}` ? "bg-blue-100" : "hover:bg-gray-100"
-      }`}
-    >
-      <div className="w-14 h-14 bg-white grid place-items-center rounded-lg border border-gray-300">
-        <JobIcon title={data.title} />
-      </div>
+<div
+  onClick={handleClick}
+  className={`flex gap-4 p-4 cursor-pointer transition-colors duration-300 ${
+    pathname === `/jobs/${data.id}` ? "bg-blue-100" : "hover:bg-gray-100"
+  }`}
+>
+  <div className="w-14 h-14 bg-white grid place-items-center rounded-lg border border-gray-300">
+    <JobIcon title={data.title} />
+  </div>
 
-      <div className="flex flex-col gap-1.5 flex-grow">
-        <h2 className="font-semibold text-base text-primary">{data.title}</h2>
-        <p className="text-sm">${data.salary}</p>
-        <p className="text-sm text-opacity-60">{data.location}</p>
+  <div className="flex flex-col gap-1.5 flex-grow">
+    <h2 className="font-semibold text-base text-primary" style={{ maxWidth: "calc(100% - 4rem)" }}>
+      {data.title.length > 40 ? `${data.title.slice(0, 40)}...` : data.title}
+    </h2>
+    <p className="text-sm">${data.salary}</p>
+    <p className="text-sm text-opacity-60">{data.location}</p>
 
-        <p className="text-xs text-opacity-60 mt-2">
-          {moment(data?.need_on).format('YYYY-MM-DD hh:mm')}
-        </p>
-      </div>
-    </div>
+    <p className="text-xs text-opacity-60 mt-2">
+      {moment(data?.need_on).format('YYYY-MM-DD hh:mm')}
+    </p>
+  </div>
+</div>
+
 	)
 }
