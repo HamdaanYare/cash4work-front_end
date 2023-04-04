@@ -26,7 +26,7 @@ export default function JobDetails() {
 		});
 		alert("Job Applied");
 		navigate("/jobs")
-
+    window.location.reload();
 	}
 
 	return (
@@ -71,9 +71,9 @@ export default function JobDetails() {
       Apply
     </button>
 
-    <button onClick={() => saveJob(data)} className="bg-white border border-primary hover:border-primary-dark text-primary text-base font-semibold px-6 py-2 rounded-lg shadow-md transition-colors duration-300">
+    {/* <button onClick={() => saveJob(data)} className="bg-white border border-primary hover:border-primary-dark text-primary text-base font-semibold px-6 py-2 rounded-lg shadow-md transition-colors duration-300">
       Save
-    </button>
+    </button> */}
   </div>
 </div>
 

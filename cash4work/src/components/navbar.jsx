@@ -53,9 +53,9 @@ export default function Navbar() {
 							Workers
 						</Link>
 						
-						<Link className="text-primary" to="/contact">
+						{/* <Link className="text-primary" to="/contact">
 							Contact
-						</Link>
+						</Link> */}
 						<Link className="text-primary" to="/About">
 							About
 						</Link>
@@ -91,13 +91,13 @@ export default function Navbar() {
 						>
 							Applied Jobs
 						</Link>
-						<a
+						{/* <a
 							href="#pablo"
 							className="text-sm py-2 px-4 font-normal block w-full whitespace-nowrap bg-transparent text-slate-700"							
 							onClick={(e) => e.preventDefault()}
 						>
 							Something else here
-						</a>
+						</a> */}
 						<div className="h-0 my-2 border border-solid border-t-0 border-slate-800 opacity-25" />
 						<Link
 							className="text-sm py-2 px-4 font-normal block w-full whitespace-nowrap bg-transparent text-slate-700"

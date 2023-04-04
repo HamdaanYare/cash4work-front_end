@@ -97,11 +97,14 @@ const Chat = React.memo(({ id }) => {
 }
 
 	const handleSendMessage = useCallback(() => {
+		let receiverID;
+		user.id === stateData.applied_by ? receiverID = stateData.posted_by : receiverID = stateData.applied_by;
+		console.log("receiver", receiverID)
     if (messageText.trim()) {
       const newMessage = {
         id: messageHistory.length + 1,
 		  sender: user.id,
-		receiver: stateData.applied_by,
+		receiver: receiverID,
 		  message: messageText.trim(),
 		msg_date: getDate(),
       };
